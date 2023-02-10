@@ -1,4 +1,4 @@
-//Code (C) Andrew Balaschak, 2023
+//Code (c) Andrew Balaschak, 2023
 
 /*
 This question is about the PCY algorithm for counting frequent pairs of items. Suppose we have six items numbered 1, 2, 3, 4, 5, 6. Consider the following twelve baskets.
