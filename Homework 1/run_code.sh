@@ -1,0 +1,1 @@
+g++ "CPTS 315 HW 1 A-Priori.cpp" -o "CPTS 315 HW 1 A-Priori.exe"
