@@ -129,3 +129,6 @@ for i in range(0, estimated_ratings.shape[0]):
     estimated_ratings.iloc[i] = estimated_ratings.iloc[0:,i].sort_values(ascending=False)[:6].index
 
 print("\t\t%s seconds" % (time.time() - start_time))
+
+print(estimated_ratings)
+movie_similarity.to_csv(os.path.join(ROOT_DIR, 'estimated_ratings.csv'))
