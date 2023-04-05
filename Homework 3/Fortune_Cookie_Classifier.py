@@ -32,7 +32,6 @@ Implement a binary classifier with perceptron weight update as shown below. Use 
 
 '''
 
-
 ####################################################################################################
 # Preprocessing
 
@@ -93,12 +92,8 @@ merged_testing_data_labels = np.array(list(zip(feature_set, testlabels)))
 
 ####################################################################################################
 # Model Training & Testing
-
-'''
-# This was just for fun, shuffling the data produces much better results for both classifiers
-random.shuffle(merged_training_data_labels)
-random.shuffle(merged_testing_data_labels)
-'''
+output = open(os.path.join(ROOT_DIR, 'output.txt'), 'w')
+tempstring = ""
 
 weights = [0] * len(vocabulary)
 averaged_weights = [0] * len(vocabulary)
@@ -108,14 +103,22 @@ learning_rate = 1
 for i in range(iterations):
     train_mistakes = 0
     test_mistakes = 0
-    averaged_test_mistakes = 0
     averaged_train_mistakes = 0
+    averaged_test_mistakes = 0
 
+    '''
+    # This was just for fun, shuffling the data produces significantly better results for both classifiers
+    random.shuffle(merged_training_data_labels)
+    random.shuffle(merged_testing_data_labels)
+    '''
+    
     # Train this iteration
     for example in merged_training_data_labels:
         #########################################
         # Make prediction for standard perceptron
         prediction = np.sign(np.sum(np.fromiter(example[0], dtype=int) * weights))
+        if (prediction < 0):
+            prediction = 0
         # If prediction is wrong
         if prediction != example[1]:
             train_mistakes = train_mistakes + 1
@@ -127,10 +130,12 @@ for i in range(iterations):
         #########################################
         # Make prediction for averaged perceptron
         averaged_prediction = np.sign(np.sum(np.fromiter(example[0], dtype=int) * averaged_weights * weight_survival_time))
+        weight_survival_time = weight_survival_time + 1
+        if (averaged_prediction < 0):
+            averaged_prediction = 0
         # If weighted prediction is wrong
         if averaged_prediction != example[1]:
             averaged_train_mistakes = averaged_train_mistakes + 1
-            weight_survival_time = weight_survival_time + 1
             if(averaged_prediction > example[1]):
                 averaged_weights = averaged_weights - np.fromiter(example[0], dtype=int) * learning_rate
                 weight_survival_time = weight_survival_time - (weight_survival_time * np.fromiter(example[0], dtype=int))
@@ -142,18 +147,37 @@ for i in range(iterations):
     for example in merged_testing_data_labels:
         prediction = np.sign(np.sum(np.fromiter(example[0], dtype=int) * weights))
         averaged_prediction = np.sign(np.sum(np.fromiter(example[0], dtype=int) * averaged_weights * weight_survival_time))
+        if (prediction < 0):
+            prediction = 0
+        if (averaged_prediction < 0):
+            averaged_prediction = 0
         # If prediction is wrong
         if prediction != example[1]:
             test_mistakes = test_mistakes + 1
         if averaged_prediction != example[1]:
             averaged_test_mistakes = averaged_test_mistakes + 1
 
-    # Console output
+    # Accuracy calculations
     training_accuracy = (len(merged_training_data_labels)-train_mistakes)/len(merged_training_data_labels)
     testing_accuracy = (len(merged_testing_data_labels)-test_mistakes)/len(merged_testing_data_labels)
     averaged_training_accuracy = (len(merged_training_data_labels)-averaged_train_mistakes)/len(merged_training_data_labels)
     averaged_testing_accuracy = (len(merged_testing_data_labels)-averaged_test_mistakes)/len(merged_testing_data_labels)
-    print("Iteration %d:\n\tStandard training mistakes: %d\n\tStandard training accuracy: %f\n\tStandard testing mistakes: %d\n\tStandard testing accuracy: %f" % (i+1, train_mistakes, training_accuracy, test_mistakes, testing_accuracy))
+
+    # File output
+    output.write("iteration-{} {}\n".format(i+1, train_mistakes))
+    tempstring = tempstring + "iteration-{} training_accuracy {} testing-accuracy {}\n".format(i+1, training_accuracy, testing_accuracy)
+
+    # Console output
+    print("Iteration %d:\n\tStandard perceptron training mistakes: %d\n\tStandard perceptron training accuracy: %f\n\tStandard perceptron testing mistakes: %d\n\tStandard perceptron testing accuracy: %f" % (i+1, train_mistakes, training_accuracy, test_mistakes, testing_accuracy))
     print()
-    print("\tAveraged training mistakes: %d\n\tAveraged training accuracy: %f\n\tAveraged testing mistakes: %d\n\tAveraged testing accuracy: %f" % (averaged_train_mistakes, averaged_training_accuracy, averaged_test_mistakes, averaged_testing_accuracy))
+    print("\tAveraged perceptron training mistakes: %d\n\tAveraged perceptron training accuracy: %f\n\tAveraged perceptron testing mistakes: %d\n\tAveraged perceptron testing accuracy: %f" % (averaged_train_mistakes, averaged_training_accuracy, averaged_test_mistakes, averaged_testing_accuracy))
     print()
+
+    if(i+1 == iterations):
+        tempstring = tempstring + "\ntraining-accuracy- standard-perceptron {} averaged-perceptron {}\n\n".format(training_accuracy, averaged_testing_accuracy)
+        tempstring = tempstring + "testing-accuracy- standard-perceptron {} averaged-perceptron {}\n\n\n".format(testing_accuracy, averaged_testing_accuracy)
+
+output.write("\n")
+output.write(tempstring)
+
+output.close()

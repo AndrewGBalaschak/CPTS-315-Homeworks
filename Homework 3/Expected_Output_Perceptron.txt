@@ -1,0 +1,92 @@
+iteration-1 137
+iteration-2 54
+iteration-3 30
+iteration-4 13
+iteration-5 7
+iteration-6 2
+iteration-7 2
+iteration-8 2
+iteration-9 2
+iteration-10 2
+iteration-11 2
+iteration-12 2
+iteration-13 2
+iteration-14 2
+iteration-15 2
+iteration-16 2
+iteration-17 2
+iteration-18 2
+iteration-19 2
+iteration-20 2
+
+iteration-1 training_accuracy 0.5745341614906833 testing-accuracy 0.33663366336633666
+iteration-2 training_accuracy 0.8322981366459627 testing-accuracy 0.42574257425742573
+iteration-3 training_accuracy 0.906832298136646 testing-accuracy 0.504950495049505
+iteration-4 training_accuracy 0.9596273291925466 testing-accuracy 0.6534653465346535
+iteration-5 training_accuracy 0.9782608695652174 testing-accuracy 0.6732673267326733
+iteration-6 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-7 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-8 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-9 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-10 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-11 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-12 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-13 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-14 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-15 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-16 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-17 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-18 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-19 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+iteration-20 training_accuracy 0.9937888198757764 testing-accuracy 0.6732673267326733
+
+training-accuracy- standard-perceptron 0.9937888198757764 averaged-perceptron 0.9937888198757764
+
+testing-accuracy- standard-perceptron 0.6732673267326733 averaged-perceptron 0.7227722772277227
+
+
+iteration-1 1526
+iteration-2 1507
+iteration-3 1470
+iteration-4 1486
+iteration-5 1494
+iteration-6 1485
+iteration-7 1504
+iteration-8 1450
+iteration-9 1457
+iteration-10 1468
+iteration-11 1482
+iteration-12 1482
+iteration-13 1492
+iteration-14 1515
+iteration-15 1480
+iteration-16 1509
+iteration-17 1500
+iteration-18 1470
+iteration-19 1474
+iteration-20 1488
+
+iteration-1 training_accuracy 0.669482347844921 testing-accuracy 0.5642368780898286
+iteration-2 training_accuracy 0.6735975741823695 testing-accuracy 0.6162196276427895
+iteration-3 training_accuracy 0.6816114359974009 testing-accuracy 0.6187020090459662
+iteration-4 training_accuracy 0.6781459822395495 testing-accuracy 0.5971389502471863
+iteration-5 training_accuracy 0.6764132553606238 testing-accuracy 0.559040706847586
+iteration-6 training_accuracy 0.6783625730994152 testing-accuracy 0.5844325234038077
+iteration-7 training_accuracy 0.6742473467619666 testing-accuracy 0.5330598506363732
+iteration-8 training_accuracy 0.6859432531947152 testing-accuracy 0.5976859156411065
+iteration-9 training_accuracy 0.6844271171756552 testing-accuracy 0.5830651099190071
+iteration-10 training_accuracy 0.6820446177171323 testing-accuracy 0.6098453770905649
+iteration-11 training_accuracy 0.6790123456790124 testing-accuracy 0.5680025244556642
+iteration-12 training_accuracy 0.6790123456790124 testing-accuracy 0.6023351214894288
+iteration-13 training_accuracy 0.6768464370803552 testing-accuracy 0.612411907015883
+iteration-14 training_accuracy 0.6718648473034438 testing-accuracy 0.5868517934153782
+iteration-15 training_accuracy 0.6794455273987438 testing-accuracy 0.5951614599768592
+iteration-16 training_accuracy 0.673164392462638 testing-accuracy 0.5721678763016724
+iteration-17 training_accuracy 0.6751137102014295 testing-accuracy 0.6090880403912906
+iteration-18 training_accuracy 0.6816114359974009 testing-accuracy 0.6042284632376144
+iteration-19 training_accuracy 0.680745072557938 testing-accuracy 0.6006100767855265
+iteration-20 training_accuracy 0.6777128005198181 testing-accuracy 0.5520353423792994
+
+training-accuracy- standard-perceptron 0.5702837340264241 averaged-perceptron 0.740524149880875
+
+testing-accuracy- standard-perceptron 0.5520353423792994 averaged-perceptron 0.7260965604291575
